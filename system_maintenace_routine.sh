@@ -26,8 +26,8 @@ else
 fi
 
 echo "Updating system and cleaning non used dependencies..."
-#sudo pacman -Syu
-#sudo pacman -Rns $(pacman -Qdtq)
+sudo pacman -Syu
+sudo pacman -Rns $(pacman -Qdtq)
 
 echo ""
 
@@ -60,6 +60,7 @@ echo ""
 df -h /
 
 echo ""
+sleep 1
 
 echo "Executing security tests with Lynis..."
 
@@ -67,7 +68,7 @@ if ! command -v lynis &> /dev/null; then
 	echo "Lynis is not installed, do you want to install now? [Y/n]"
 	read continue_option2
 
-	if [[ $continue_option2 = "Y" || $continue_option2 = "y" ]]; then
+	if [[ $continue_option2 = "Y" && $continue_option2 = "y" ]]; then
 		sudo pacman -Sy --noconfirm lynis | sudo lynis audit system
 	else
 		echo "ok, skipping..."
@@ -80,12 +81,14 @@ fi
 echo ""
 echo "Auditing security logs..."
 echo ""
+sleep 1
 
 grep "Failed password" /var/log/auth.log
 
 echo ""
 echo "Listing all the installed packages (only not-default packages), if there is a package with no usage, its recommended to remove it."
 echo ""
+sleep 1
 
 pacman -Qe
 
