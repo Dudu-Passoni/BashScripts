@@ -41,7 +41,7 @@ if [[ $cleaning_days_number > 30 || $cleaning_days_number < 0 ]]; then
 	echo "number out of ranges!"
 	clear_logs
 else
-journalctl --vacuum-time=10d
+sudo journalctl --vacuum-time=10d
 fi
 }
 clear_logs
