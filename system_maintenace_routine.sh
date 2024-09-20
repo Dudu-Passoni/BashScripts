@@ -242,7 +242,7 @@ if [ -f /etc/os-release ]; then
 	elif [[ $ID = "debian" || $ID = "ubuntu" || $ID = "mint" ]]; then
 		debian_script
 	else
-		echo "Sorry, this script does not support your Distro, this will be fixed soon.
+		echo "Sorry, this script does not support your Distro, this will be fixed soon."
 	fi
 
 	
