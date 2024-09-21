@@ -27,9 +27,18 @@ else
 fi
 
 echo "Updating system and cleaning non used dependencies..."
-sudo pacman -Syu
-sudo pacman -Rns $(pacman -Qdtq)
-
+echo "Do you want to update your system? [Y/n]"
+read option1
+if [[ $option1 == "Y" || $option1 == "y" ]]; then
+  echo "Updating you system."
+  sudo pacman -Syu
+fi
+echo "Do you want to remove unsused dependencies? (Be careful, this may remove some packages you use)"
+read option2
+if [[ $option2 == "Y" || $option2 == "y" ]]; then
+  echo "Removindo unwanted packages..."
+  sudo pacman -Rns $(pacman -Qdtq)
+fi
 echo ""
 
 echo "Cleaning logs."
