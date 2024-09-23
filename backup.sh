@@ -10,10 +10,10 @@ if [[ "$1" == "-h" ]]; then
 else
 
 if [[ -z "$source_dir" ]] && [[ -z "$backup_dir" ]]; then
-        echo "Digite o caminho do arquivo/diretório para backup"
+        echo "Please, specify the directory/file path:"
         read source_dir
 
-        echo "Digite o caminho para o arquivo backup"
+        echo "Please, specify the path you want your backup:"
         read backup_dir
 fi
 
@@ -23,4 +23,8 @@ filename=$(basename "$source_dir")
 backup_file="backup_${filename%.*}-$timestamp.tar.gz"
 
 tar -czvf "$backup_dir/$backup_file" "$source_dir"
+
+echo "Sucess..."
+
 fi
+
