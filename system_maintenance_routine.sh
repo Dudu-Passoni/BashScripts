@@ -33,7 +33,7 @@ if [[ $option1 == "Y" || $option1 == "y" ]]; then
   echo "Updating you system."
   sudo pacman -Syu
 fi
-echo "Do you want to remove unsused dependencies? (Be careful, this may remove some packages you use)"
+echo "Do you want to remove unsused dependencies? (Be careful, this may remove some packages you use) [Y/n]"
 read option2
 if [[ $option2 == "Y" || $option2 == "y" ]]; then
   echo "Removindo unwanted packages..."
