@@ -1,30 +1,44 @@
 #!/bin/bash
 
-# @Author Dudu-Passoni
+# @Author Luis Eduardo Passoni
+
+echo "Compress your files or directory."
+echo -e "\e[1;33mWritten by Luis Eduardo Passoni\e[0m"
+
+_autocomplete() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=($(compgen -f -- "$cur"))
+}
 
 source_dir=$1
 backup_dir=$2
 
+
+complete -F _autocomplete "$0"
+
 if [[ "$1" == "-h" ]]; then
-        echo "backup [source directory] [backup directory]"
+    echo "Usage: Compress [source directory] [backup directory]"
 else
 
-if [[ -z "$source_dir" ]] && [[ -z "$backup_dir" ]]; then
-        echo "Please, specify the directory/file path:"
-        read source_dir
+    if [[ -z "$source_dir" ]] && [[ -z "$backup_dir" ]]; then
+        echo "Specify the path to the file/diretory you want to compress:"
+        read -e source_dir
 
-        echo "Please, specify the path you want your backup:"
-        read backup_dir
-fi
+        echo "Specify the path to where the backup file is gonna go:"
+        read -e backup_dir
+    fi
 
-timestamp=$(date +%Y%m%d)
-filename=$(basename "$source_dir")
+	source_dir="${source_dir/#\~/$HOME}"
+	backup_dir="${backup_dir/#\~/$HOME}"
 
-backup_file="backup_${filename%.*}-$timestamp.tar.gz"
+    timestamp=$(date +%Y%m%d)
+    filename=$(basename "$source_dir")
 
-tar -czvf "$backup_dir/$backup_file" "$source_dir"
+    backup_file="backup_${filename%.*}-$timestamp.tar.gz"
 
-echo "Sucess..."
+    tar -czvf "$backup_dir/$backup_file" "$source_dir"
 
+    echo "Compression done successfully"
+    echo "Bye..."
 fi
 
