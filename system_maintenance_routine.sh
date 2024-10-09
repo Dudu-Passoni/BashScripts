@@ -354,7 +354,7 @@ echo -e "\e[1;33m _     _                                                   \n \
 | |\\/| |/ _ | | _ \\| __/ _ | | _ \\ / _ \\ _ \\ / __/ _ \\ \n \
 | |   | | (_| | | | | | || (_| | | | | |  __/ | | | (_|  __/ \n \
 |_|   |_|\\__,_|_|_| |_|\\__\\__,_|_|_| |_|\\___|_| |_|\\___\\___| \e[0m"
-
+echo ""
 echo "Detecting whats your Linux distro..."
 echo -ne '#####                     (33%)\r'
 sleep 1
@@ -362,6 +362,7 @@ echo -ne '#############             (66%)\r'
 sleep 1
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
+echo ""
 
 if [ -f /etc/os-release ]; then
 	. /etc/os-release
