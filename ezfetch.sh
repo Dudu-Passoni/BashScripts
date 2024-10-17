@@ -40,17 +40,17 @@ COR=${RED}
 PACOTES=$(dpkg -l | wc -l)
 		;;
 	ubuntu)
-echo -e "${ORANGE}  S2..;,; S1.,;,."
-echo -e "    S2.,lool: S1.ooooo,"
-echo -e "   S2;oo;:    S1.coool."
-echo -e " S1....         S1''' S2,l;"
-echo -e "S1:oooo,            S2'oo."
-echo -e "S1looooc            S2:oo'"
-echo -e " S1'::'             S2,oo:"
-echo -e "   S2,.,       S1.... S2co,"
-echo -e "    S2lo:;.   S1:oooo; S2."
-echo -e "     S2':ooo; S1cooooc"
-echo -e "        S2'''  S1''''"
+echo -e "${ORANGE}  ..;,; .,;,."
+echo -e "    .,lool: .ooooo,"
+echo -e "   ;oo;:    .coool."
+echo -e " ....         ''' ,l;"
+echo -e ":oooo,            'oo."
+echo -e "looooc            :oo'"
+echo -e " '::'             ,oo:"
+echo -e "   ,.,       .... co,"
+echo -e "    lo:;.   :oooo; ."
+echo -e "     ':ooo; cooooc"
+echo -e "        '''  ''''"
 echo -e "${RESET}"
 COR=${ORANGE}
 PACOTES=$(dpkg -l | wc -l)
