@@ -147,3 +147,4 @@ echo "Kernel version: $KERNEL_VERSION"
 echo "Packages: $PACOTES"
 echo "Shell: $SHELL_NAME"
 echo "Terminal: $TERM"
+
