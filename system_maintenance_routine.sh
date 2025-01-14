@@ -64,6 +64,12 @@ fi
 clear_logs
 
 echo ""
+echo "Cheking for broken dependencies..."
+
+sudo pacman -Qk
+
+
+echo ""
 echo "Checking the disk space..."
 
 sleep 1
