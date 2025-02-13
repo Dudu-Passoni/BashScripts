@@ -28,7 +28,7 @@ for dep in $(apt-cache depends $pacote | grep "Depends:" | cut -d: -f2); do
 done
   ;;
   arch)
-    for dep in $(pactree -l "$PACOTE"); do
+    for dep in $(pactree -l $pacote); do
   if pacman -Q "$dep" &>/dev/null; then
     echo -e "${LIGHT_GREEN}[INSTALADO]${RESET}  $dep"
   else
